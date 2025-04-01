@@ -55,23 +55,31 @@ function animationProducts() {
 
   let index = 0;
 
-  // selectedPoint.products.forEach((p) =? )
-  // productNames.forEach((el) => el.classList.replace('fade-cycle', ''));
-  // productLocations.forEach((el) => el.classList.replace('fade-cycle', ''));
-  // productPrices.forEach((el) => el.classList.replace('fade-cycle', ''));
-  // productNames.forEach((el) => el.classList.add('fade-cycle'));
-  // productLocations.forEach((el) => el.classList.add('fade-cycle'));
-  // productPrices.forEach((el) => el.classList.add('fade-cycle'));
-
   function updateContent() {
     const product = selectedPoint.products[index];
 
-    productNames.forEach((element) => (element.textContent = product.nameProduct));
-    productLocations.forEach((element) => (element.textContent = product.location));
-    productPrices.forEach((element) => (element.textContent = `R$ ${product.price.toFixed(2)}`));
-    
-    // Avança para o próximo produto, reiniciando se chegar ao final
-    index = (index + 1) % selectedPoint.products.length;
+    productNames.forEach((el) => el.classList.remove('fade-cycle'));
+    productLocations.forEach((el) => el.classList.remove('fade-cycle'));
+    productPrices.forEach((el) => el.classList.remove('fade-cycle'));
+
+    setTimeout(() => {
+      productNames.forEach((el) => {
+        el.textContent = product.nameProduct;
+        el.classList.add('fade-cycle');
+      });
+
+      productLocations.forEach((el) => {
+        el.textContent = product.location;
+        el.classList.add('fade-cycle');
+      });
+
+      productPrices.forEach((el) => {
+        el.textContent = `R$ ${product.price.toFixed(2)}`;
+        el.classList.add('fade-cycle');
+      });
+
+      index = (index + 1) % selectedPoint.products.length;
+    }, 500); // 5s
   }
 
   updateContent();
@@ -100,6 +108,19 @@ function addProduct() {
 function start() {
   const addProcutButton = document.getElementById('add-product');
   addProcutButton.addEventListener('click', addProduct());
+  
+  let selectedPreview = null;
+  document.querySelectorAll('.button-change-preview').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (selectedPreview) {
+        selectedPreview.classList.remove('border-b-2', 'border-[#0D6AF4]', 'mb-[-2px]');
+      }
+      selectedPreview = button;
+      button.classList.add('border-b-2', 'border-[#0D6AF4]', 'mb-[-2px]');
+    });
+  });
+
+
 
   configMap();
 }

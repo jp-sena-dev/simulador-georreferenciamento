@@ -26,14 +26,14 @@ const points = [
       },
       {
         id: 4,
-        nameProduct: 'Crene Debtal',
+        nameProduct: 'Creme Dental',
         price: 2.59,
         CTA: 'cabelos Brilhantes',
         location: 'Taguatinga',
       },
       {
         id: 5,
-        nameProduct: 'Esciva de debte',
+        nameProduct: 'Escova de dente',
         price: 3.75,
         CTA: 'cabelos Brilhantes',
         location: 'Taguatinga',
@@ -67,14 +67,14 @@ const points = [
       },
       {
         id: 4,
-        nameProduct: 'Crene Debtal',
+        nameProduct: 'Creme Dental',
         price: 2.59,
         CTA: 'cabelos Brilhantes',
         location: 'EPTG',
       },
       {
         id: 5,
-        nameProduct: 'Esciva de debte',
+        nameProduct: 'Escova de dente',
         price: 3.75,
         CTA: 'cabelos Brilhantes',
         location: 'EPTG',
