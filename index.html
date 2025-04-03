@@ -10,8 +10,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#DFE2E7]">
-  <main class="grid grid-cols-[40%,60%] min-h-screen">
-    <div class="h-full p-4">
+  <main class="grid grid-cols-[40%,60%] min-h-screen relative">
+    <div class="p-4 h-fit sticky top-1">
       <div class="flex justify-between">
         <img class="h-24" src="https://dsmediadigital.com.br/wp-content/uploads/2024/01/Logo-DSDIGITAL.webp" />
         <img class="h-24" src="https://static.wixstatic.com/media/4d8a12_286332234a7e49629b54881eec6e9edc~mv2.png/v1/fill/w_190,h_190,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/VUALA%20-%20CABE%20-%20COR%20-%20HORIZONTAL%20-%20PNG_edited.png" />
@@ -41,10 +41,10 @@
     </div>
     <div class="bg-[#F3F4F6] h-full p-4">
       <div class="flex gap-2 font-bold w-full border-b-2 mb-4">
-        <button class="py-2 button-change-preview">Mobile</button>
-        <button class="py-2 button-change-preview">Desktop</button>
+        <button id="Mobile" class="py-2 button-change-preview">Mobile</button>
+        <button id="Desktop" class="py-2 button-change-preview ">Desktop</button>
       </div>
-      <div class="flex flex-wrap gap-4">
+      <div id="Mobile-previews" class="flex flex-wrap gap-4">
         <div class="bg-white p-2 rounded flex flex-col items-center">
           <p class="text-center font-bold">Retângulo Médio (300x250)</p>
           <div class="w-[300px] h-[250px] bg-gray-500 my-auto">
@@ -86,9 +86,122 @@
           </div>
         </div>
       </div>
+      <div id="Desktop-previews" class="flex flex-wrap gap-4 hidden">
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Retângulo Médio (300x250)</p>
+            <div class="w-[300px] h-[250px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Leaderboard (728x90)</p>
+            <div class="w-[728px] h-[90px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Retângulo Vertical (240x400)</p>
+            <div class="w-[240px] h-[400px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Quadrado (250x250)</p>
+            <div class="w-[250px] h-[250px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Skyscraper (120x600)</p>
+            <div class="w-[120px] h-[600px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Wide Skyscraper (160x600)</p>
+            <div class="w-[160px] h-[600px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Half Page (300x600)</p>
+            <div class="w-[300px] h-[600px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Large Rectangle (336x280)</p>
+            <div class="w-[336px] h-[280px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Billboard (970x250)</p>
+            <div class="w-[970px] h-[250px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Panorama (980x120)</p>
+            <div class="w-[980px] h-[120px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-2 rounded flex flex-col items-center">
+            <p class="text-center font-bold">Netboard (580x400)</p>
+            <div class="w-[580px] h-[400px] bg-gray-500 my-auto">
+                <div class="text-white p-2">
+                    <p class="font-bold">local: <span class="font-normal product-location"></span></p>
+                    <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
+                    <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
   </main>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="env.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_0UymOY5TvmWh3XQZphHFu5u_LLw6LpY&callback=initMap" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script type="module" src="script.js"></script>
 </body>
