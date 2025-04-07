@@ -1,6 +1,6 @@
 import points from './points.js';
 
-let showModal = false;
+let HTMLs = [];
 let selectedPreview;
 let selectedPoint = {};
 let animationInterval;
@@ -185,27 +185,10 @@ function closeModalTable() {
 // }
 
 function openModalPreview() {
-  let HTMLs = [];
   let indexPreview = 0;
 
   const modal = document.getElementById('modal-preview');
   const modalContent = document.getElementById('modal-preview-content');
-
-  (async () => {
-    const metropolesRes = await fetch('./metropoles.html');
-    const G1Res = await fetch('./g1.html');
-    const UolRes = await fetch('./oul.html');
-
-    const metropolesHTML = await metropolesRes.text();
-    const G1HTML = await G1Res.text();
-    const UolHTML = await UolRes.text();
-
-    HTMLs = [metropolesHTML, G1HTML, UolHTML];
-    // modalContent.innerHTML = HTMLs[indexPreview];
-    document.querySelectorAll('.carousel-item').forEach((e, i) => {
-      e.srcdoc = HTMLs[i]
-    });
-  })();
 
 
   // carouselInner.innerHTML = HTMLs.map((html, i) => `
@@ -234,9 +217,9 @@ function openModalPreview() {
 
 function closeModalPreview() {
   const modal = document.getElementById('modal-preview');
-  document.querySelectorAll('.carousel-item').forEach((e, i) => {
-    e.srcdoc = ''
-  });
+  // document.querySelectorAll('.carousel-item').forEach((e, i) => {
+  //   e.srcdoc = ''
+  // });
   modal.classList.remove('show');
 }
 
@@ -286,8 +269,23 @@ function start() {
       }
     });
   });
-
   configMap();
+
+  (async () => {
+    const metropolesRes = await fetch('./htmls/metropoles.html');
+    const G1Res = await fetch('./htmls/g1.html');
+    const UolRes = await fetch('./htmls/oul.html');
+
+    const metropolesHTML = await metropolesRes.text();
+    const G1HTML = await G1Res.text();
+    const UolHTML = await UolRes.text();
+
+    HTMLs = [metropolesHTML, G1HTML, UolHTML];
+    // modalContent.innerHTML = HTMLs[indexPreview];
+    document.querySelectorAll('.carousel-item').forEach((e, i) => {
+      e.srcdoc = HTMLs[i]
+    });
+  })();
 }
 
 document.addEventListener('DOMContentLoaded', start());
