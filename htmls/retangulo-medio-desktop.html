@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retângulo Médio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .fade-cycle {
+      /* @apply transition-opacity duration-500 opacity-0; */
+      animation: fadeInOut 2.5s;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
+    <img class="promotion-image w-[206px]" src="/assets/logo-promo.png" alt="">
+    <p class="font-bold product-location text-white text-[24px] leading-[28px] absolute top-[41px] right-[0px] w-[150px] text-center">Vicente Prires</p>
+    <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
+      <p class="font-bold product-name text-white text-[20px] leading-[24px] w-fit">Melancia</p>
+      <p class="font-bold product-price text-white text-[22px] text-[32px] w-fit leading-[28px]">R$0,99</p>
+      <p class="font-bold text-white text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+    </div>
+    <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px]" src="/assets/melancia.png" alt="">
+  </div>
+  <script>
+    let animationInterval;
+
+    const selectedPoint = JSON.parse(localStorage.getItem('selectedPoint'));
+    const productNames = document.querySelectorAll('.product-name');
+    const productLocations = document.querySelectorAll('.product-location');
+    const productPrices = document.querySelectorAll('.product-price');
+    const productImage = document.querySelectorAll('.product-image');
+
+    let index = 0;
+
+    function updateContent() {
+        const product = selectedPoint.products[index];
+
+        productNames.forEach((el) => el.classList.remove('fade-cycle'));
+        productLocations.forEach((el) => el.classList.remove('fade-cycle'));
+        productPrices.forEach((el) => el.classList.remove('fade-cycle'));
+        productImage.forEach((el) => el.classList.remove('fade-cycle'));
+
+        setTimeout(() => {
+          productNames.forEach((el) => {
+            el.textContent = product.nameProduct;
+            el.classList.add('fade-cycle');
+          });
+
+          productLocations.forEach((el) => {
+            el.textContent = product.location;
+            el.classList.add('fade-cycle');
+          });
+
+          productPrices.forEach((el) => {
+            el.textContent = `${
+            product.price.toLocaleString('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            })}`;
+            el.classList.add('fade-cycle');
+          });
+
+          productImage.forEach((el) => {
+            el.src = product.image;
+            el.classList.add('fade-cycle');
+          });
+
+          index = (index + 1) % selectedPoint.products.length;
+        }, 250); // 5s
+      }
+
+      updateContent();
+
+      if (animationInterval) clearInterval(animationInterval);
+      animationInterval = setInterval(updateContent, 2500);
+  </script>
+</body>
+</html>

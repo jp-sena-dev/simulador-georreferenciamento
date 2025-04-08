@@ -1,8 +1,10 @@
 import points from './points.js';
 
 let HTMLs = [];
+let previewId = '';
 let selectedPreview;
-let selectedPoint = {};
+let selectedPoint = points[0];
+localStorage.setItem('selectedPoint', JSON.stringify(selectedPoint));
 let animationInterval;
 
 function configMap() {
@@ -78,6 +80,7 @@ function animationProducts() {
   const productNames = document.querySelectorAll('.product-name');
   const productLocations = document.querySelectorAll('.product-location');
   const productPrices = document.querySelectorAll('.product-price');
+  const productImage = document.querySelectorAll('.product-image');
 
   let index = 0;
 
@@ -87,6 +90,7 @@ function animationProducts() {
     productNames.forEach((el) => el.classList.remove('fade-cycle'));
     productLocations.forEach((el) => el.classList.remove('fade-cycle'));
     productPrices.forEach((el) => el.classList.remove('fade-cycle'));
+    productImage.forEach((el) => el.classList.remove('fade-cycle'));
 
     setTimeout(() => {
       productNames.forEach((el) => {
@@ -104,6 +108,11 @@ function animationProducts() {
         el.classList.add('fade-cycle');
       });
 
+      productImage.forEach((el) => {
+        el.src = product.image;
+        el.classList.add('fade-cycle');
+      });
+
       index = (index + 1) % selectedPoint.products.length;
     }, 250); // 5s
   }
@@ -118,6 +127,7 @@ function createItensTable(location) {
   const tableContainer = document.getElementById('table');
   tableContainer.innerHTML = '';
   selectedPoint = points.find((point) => `${Object.values(point.location)}` === `${location}`);
+  localStorage.setItem('selectedPoint', JSON.stringify(selectedPoint));
 
   selectedPoint.products.forEach((product, index) => {
     createProductTD(product, index);
@@ -185,31 +195,60 @@ function closeModalTable() {
 // }
 
 function openModalPreview() {
-  let indexPreview = 0;
+  let HTMLs = [];
 
   const modal = document.getElementById('modal-preview');
   const modalContent = document.getElementById('modal-preview-content');
 
+  const scrollToTargetInsideIframe = (iframe) => {
+    try {
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      const target = iframeDoc.getElementById(previewId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } catch (e) {
+      console.error('Erro ao acessar o iframe:', e);
+    }
+  };
 
-  // carouselInner.innerHTML = HTMLs.map((html, i) => `
-  //   <div class="carousel-item ${i === 0 ? 'active' : ''}">
-  //     <div class="p-4">${html}</div>
-  //   </div>
-  // `).join('');
+  (async () => {
+    // const metropolesRes = await fetch('./htmls/metropoles.html');
+    // const G1Res = await fetch('./htmls/g1.html');
+    // const UolRes = await fetch('./htmls/oul.html');
 
-  // document.getElementById('prev-preview').addEventListener('click', () => {
-  //   if (indexPreview > 0) {
-  //     indexPreview -= 1;
-  //     modalContent.innerHTML = HTMLs[indexPreview];
-  //   }
-  // });
-  
-  // document.getElementById('next-preview').addEventListener('click', () => {
-  //   if (indexPreview < HTMLs.length - 1) {
-  //     indexPreview += 1;
-  //     modalContent.innerHTML = HTMLs[indexPreview];
-  //   }
-  // });
+    // const metropolesHTML = await metropolesRes.text();
+    // const G1HTML = await G1Res.text();
+    // const UolHTML = await UolRes.text();
+
+    // HTMLs = [metropolesHTML, G1HTML];
+
+    const iframes = document.querySelectorAll('.carousel-item');
+    iframes.forEach((iframe, i) => {
+      // iframe.srcdoc = HTMLs[i];
+
+      iframe.addEventListener('load', () => {
+        // aplica scroll só no primeiro no início
+        if (i === 0) {
+          scrollToTargetInsideIframe(iframe);
+        }
+      });
+    });
+
+    const carouselEl = document.getElementById('carouselExample');
+    carouselEl.addEventListener('slid.bs.carousel', () => {
+      const activeIframe = document.querySelector('.carousel-item.active');
+      if (activeIframe) {
+        scrollToTargetInsideIframe(activeIframe);
+      }
+    });
+  })();
+
+  const carouselEl = document.getElementById('carouselExample');
+  const carousel = bootstrap.Carousel.getInstance(carouselEl);
+  if (carousel) {
+    carousel.to(0);
+  }
 
   modal.classList.add('show');
 }
@@ -227,7 +266,7 @@ function start() {
   // const addProcutButton = document.getElementById('add-product');
   // addProcutButton.addEventListener('click', addProduct());
   
-  document.querySelectorAll('.mobile-preview').forEach((e) => e.addEventListener('click', openModalPreview));
+  document.querySelectorAll('.mobile-preview').forEach((e) => e.addEventListener('click', () => {openModalPreview(); previewId = e.id}));
   document.getElementById('overlay-click-close-preview').addEventListener('click', closeModalPreview);
 
   document.getElementById('open-table').addEventListener('click', openModalTable);
@@ -269,23 +308,22 @@ function start() {
       }
     });
   });
-  configMap();
 
   (async () => {
     const metropolesRes = await fetch('./htmls/metropoles.html');
     const G1Res = await fetch('./htmls/g1.html');
-    const UolRes = await fetch('./htmls/oul.html');
+    // const UolRes = await fetch('./htmls/oul.html');
 
     const metropolesHTML = await metropolesRes.text();
     const G1HTML = await G1Res.text();
-    const UolHTML = await UolRes.text();
+    // const UolHTML = await UolRes.text();
 
-    HTMLs = [metropolesHTML, G1HTML, UolHTML];
-    // modalContent.innerHTML = HTMLs[indexPreview];
-    document.querySelectorAll('.carousel-item').forEach((e, i) => {
-      e.srcdoc = HTMLs[i]
+    HTMLs = [metropolesHTML, G1HTML];
+    iframes.forEach((iframe, i) => {
+      iframe.srcdoc = HTMLs[i];
     });
   })();
+  configMap();
 }
 
 document.addEventListener('DOMContentLoaded', start());
