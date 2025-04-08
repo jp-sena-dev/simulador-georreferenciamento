@@ -8,22 +8,8 @@ const points = [
     products: [
       { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Taguatinga' },
       { id: 2, nameProduct: 'Abobora', price: 7.40, CTA: 'cabelos Brilhantes', location: 'Taguatinga', image: '/assets/abobora.png' },
-      {
-        id: 3,
-        nameProduct: 'Melancia',
-        price: 1.99,
-        CTA: 'cabelos Brilhantes',
-        location: 'Taguatinga',
-        image: '/assets/melancia.png'
-      },
-      {
-        id: 4,
-        nameProduct: 'Penino',
-        price: 2.59,
-        CTA: 'cabelos Brilhantes',
-        location: 'Taguatinga',
-        image: '/assets/pepino.png'
-      },
+      { id: 3, nameProduct: 'Melancia', price: 1.99, CTA: 'cabelos Brilhantes', location: 'Taguatinga', image: '/assets/melancia.png' },
+      { id: 4, nameProduct: 'Penino', price: 2.59, CTA: 'cabelos Brilhantes', location: 'Taguatinga', image: '/assets/pepino.png' },
     ]
   },
   {
@@ -298,4 +284,22 @@ const points = [
   }
 ];
 
-export default points;
+
+const newProducts = [
+  { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png'},
+  { id: 2, nameProduct: 'Abobora', price: 7.40, CTA: 'cabelos Brilhantes', image: '/assets/abobora.png' },
+  { id: 3, nameProduct: 'Melancia', price: 1.99, CTA: 'cabelos Brilhantes', image: '/assets/melancia.png' },
+  { id: 4, nameProduct: 'Penino', price: 2.59, CTA: 'cabelos Brilhantes', image: '/assets/pepino.png' },
+];
+
+const updatedPoints = points.map(point => ({
+  ...point,
+  products: newProducts.map(product => ({
+    ...product,
+    location: point.name.split('-')[1]?.trim() || point.name // atualiza o `location` baseado no nome do ponto
+  }))
+}));
+
+console.log(updatedPoints);
+
+export default updatedPoints;

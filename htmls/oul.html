@@ -6795,6 +6795,23 @@
                 background-size: 600px;
                 animation: skeleton 1.6s infinite
             }
+            @media (max-width: 768px) {
+                .desktop-hidden {
+                    display: none;
+                }
+                .mobile-hidden {
+                    display: block;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .mobile-hidden {
+                    display: none;
+                }
+                .desktop-hidden {
+                    display: block;
+                }
+            }
         </style>
     </head>
     <body data-anchorAds="true">

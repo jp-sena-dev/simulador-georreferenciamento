@@ -63,7 +63,7 @@ function createProductTD(product, productIndex) {
   const row = document.createElement('tr');
   row.innerHTML = `
     <td><input type="text" value="${product.nameProduct}" class="w-full border-none outline-none product-name-input" data-index="${productIndex}" /></td>
-    <td><input type="text" value="${product.price.toFixed(2)}" class="w-full border-none outline-none product-price-input" data-index="${productIndex}" /></td>
+    <td><input type="text" value="${product.price}" class="w-full border-none outline-none product-price-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.CTA}" class="w-full border-none outline-none product-CTA-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.location}" class="w-full border-none outline-none product-location-input" data-index="${productIndex}" /></td>
   `;
@@ -104,7 +104,7 @@ function animationProducts() {
       });
 
       productPrices.forEach((el) => {
-        el.textContent = `R$ ${product.price.toFixed(2)}`;
+        el.textContent = `${product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', })}`;
         el.classList.add('fade-cycle');
       });
 
