@@ -6,10 +6,10 @@ const points = [
     },
     name: 'Atacadão dia a dia - Taguatinga',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Taguatinga' },
-      { id: 2, nameProduct: 'Abobora', price: 7.40, CTA: 'cabelos Brilhantes', location: 'Taguatinga', image: '/assets/abobora.png' },
-      { id: 3, nameProduct: 'Melancia', price: 1.99, CTA: 'cabelos Brilhantes', location: 'Taguatinga', image: '/assets/melancia.png' },
-      { id: 4, nameProduct: 'Penino', price: 2.59, CTA: 'cabelos Brilhantes', location: 'Taguatinga', image: '/assets/pepino.png' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Taguatinga' },
+      { id: 2, nameProduct: 'Abobora', price: 7.40, CTA: 'Frutas e verduras frescas', location: 'Taguatinga', image: '/assets/abobora.png' },
+      { id: 3, nameProduct: 'Melancia', price: 1.99, CTA: 'Frutas e verduras frescas', location: 'Taguatinga', image: '/assets/melancia.png' },
+      { id: 4, nameProduct: 'Penino', price: 2.59, CTA: 'Frutas e verduras frescas', location: 'Taguatinga', image: '/assets/pepino.png' },
     ]
   },
   {
@@ -23,35 +23,35 @@ const points = [
         id: 1,
         nameProduct: 'Shampoo 350ml',
         price: 6.40,
-        CTA: 'cabelos Brilhantes',
+        CTA: 'Frutas e verduras frescas',
         location: 'EPTG'
       },
       {
         id: 2,
         nameProduct: 'Condicionador 3',
         price: 7.40,
-        CTA: 'cabelos Brilhantes',
+        CTA: 'Frutas e verduras frescas',
         location: 'EPTG'
       },
       {
         id: 3,
         nameProduct: 'Sabonete 90g',
         price: 1.99,
-        CTA: 'cabelos Brilhantes',
+        CTA: 'Frutas e verduras frescas',
         location: 'EPTG'
       },
       {
         id: 4,
         nameProduct: 'Creme Dental',
         price: 2.59,
-        CTA: 'cabelos Brilhantes',
+        CTA: 'Frutas e verduras frescas',
         location: 'EPTG'
       },
       {
         id: 5,
         nameProduct: 'Escova de dente',
         price: 3.75,
-        CTA: 'cabelos Brilhantes',
+        CTA: 'Frutas e verduras frescas',
         location: 'EPTG'
       }
     ]
@@ -63,7 +63,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Águas Claras',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Águas Claras' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Águas Claras' },
       { id: 2, nameProduct: 'Amaciante 2L', price: 8.99, CTA: 'Perfume duradouro', location: 'Águas Claras' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Águas Claras' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Águas Claras' },
@@ -77,7 +77,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - BR 070 (Ceilândia)',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'BR 070 (Ceilândia)' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'BR 070 (Ceilândia)' },
       { id: 2, nameProduct: 'Feijão 1kg', price: 7.99, CTA: 'Fonte de proteínas', location: 'BR 070 (Ceilândia)' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'BR 070 (Ceilândia)' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'BR 070 (Ceilândia)' },
@@ -91,7 +91,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Ceilândia Centro',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Ceilândia Centro' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Ceilândia Centro' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'Ceilândia Centro' },
       { id: 3, nameProduct: 'Margarina 500g', price: 5.50, CTA: 'Cremosidade e sabor', location: 'Ceilândia Centro' },
       { id: 4, nameProduct: 'Queijo mussarela 200g', price: 12.90, CTA: 'Sabor irresistível', location: 'Ceilândia Centro' },
@@ -106,7 +106,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Ceilândia Sul',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Ceilândia Sul' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Ceilândia Sul' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'Ceilândia Sul' },
       { id: 3, nameProduct: 'Margarina 500g', price: 5.50, CTA: 'Cremosidade e sabor', location: 'Ceilândia Sul' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Ceilândia Sul' },
@@ -120,7 +120,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Gama',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Gama' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Gama' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'Gama' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Gama' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Gama' },
@@ -134,7 +134,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Guará 2',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Guará 2' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Guará 2' },
       { id: 2, nameProduct: 'Amaciante 2L', price: 8.99, CTA: 'Perfume duradouro', location: 'Guará 2' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Guará 2' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Guará 2' },
@@ -148,7 +148,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Jardim Botânico',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Jardim Botânico' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Jardim Botânico' },
       { id: 2, nameProduct: 'Feijão 1kg', price: 7.99, CTA: 'Fonte de proteínas', location: 'Jardim Botânico' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Jardim Botânico' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Jardim Botânico' },
@@ -162,7 +162,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Mestre D’armas',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Mestre D’armas' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Mestre D’armas' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'Mestre D’armas' },
       { id: 3, nameProduct: 'Margarina 500g', price: 5.50, CTA: 'Cremosidade e sabor', location: 'Mestre D’armas' },
       { id: 4, nameProduct: 'Queijo mussarela 200g', price: 12.90, CTA: 'Sabor irresistível', location: 'Mestre D’armas' },
@@ -177,7 +177,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Planaltina',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Planaltina' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Planaltina' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'Planaltina' },
       { id: 3, nameProduct: 'Margarina 500g', price: 5.50, CTA: 'Cremosidade e sabor', location: 'Planaltina' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Planaltina' },
@@ -191,7 +191,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Recanto das Emas',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Recanto das Emas' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Recanto das Emas' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'Recanto das Emas' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Recanto das Emas' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Recanto das Emas' },
@@ -205,7 +205,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Samambaia I',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Samambaia' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Samambaia' },
       { id: 2, nameProduct: 'Amaciante 2L', price: 8.99, CTA: 'Perfume duradouro', location: 'Samambaia' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Samambaia' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Samambaia' },
@@ -219,7 +219,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Samambaia II',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Samambaia II' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Samambaia II' },
       { id: 2, nameProduct: 'Amaciante 2L', price: 8.99, CTA: 'Perfume duradouro', location: 'Samambaia II' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Samambaia II' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Samambaia II' },
@@ -233,7 +233,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - SIA',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', CTA: 'Toque macio', location: 'SIA' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', CTA: 'Toque macio', location: 'SIA' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'SIA' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'SIA' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'SIA' },
@@ -247,7 +247,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Sobradinho',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Sobradinho' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Sobradinho' },
       { id: 2, nameProduct: 'Amaciante 2L', price: 8.99, CTA: 'Perfume duradouro', location: 'Sobradinho' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Sobradinho' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Sobradinho' },
@@ -261,7 +261,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Vicente Pires (Rua 12)',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Vicente Pires (Rua 12)' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Vicente Pires (Rua 12)' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'Vicente Pires (Rua 12)' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Vicente Pires (Rua 12)' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Vicente Pires (Rua 12)' },
@@ -275,7 +275,7 @@ const points = [
     },
     name: 'Atacadão dia a dia - Vicente Pires (Rua 04)',
     products: [
-      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png', location: 'Vicente Pires (Rua 04)' },
+      { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', location: 'Vicente Pires (Rua 04)' },
       { id: 2, nameProduct: 'Detergente 500ml', price: 2.30, CTA: 'Gordura zero', location: 'Vicente Pires (Rua 04)' },
       { id: 3, nameProduct: 'Desinfetante 1L', price: 5.50, CTA: 'Limpeza profunda', location: 'Vicente Pires (Rua 04)' },
       { id: 4, nameProduct: 'Papel higiênico 12 rolos', price: 14.90, CTA: 'Toque macio', location: 'Vicente Pires (Rua 04)' },
@@ -286,10 +286,10 @@ const points = [
 
 
 const newProducts = [
-  { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'cabelos Brilhantes', image: '/assets/banana.png'},
-  { id: 2, nameProduct: 'Abobora', price: 7.40, CTA: 'cabelos Brilhantes', image: '/assets/abobora.png' },
-  { id: 3, nameProduct: 'Melancia', price: 1.99, CTA: 'cabelos Brilhantes', image: '/assets/melancia.png' },
-  { id: 4, nameProduct: 'Penino', price: 2.59, CTA: 'cabelos Brilhantes', image: '/assets/pepino.png' },
+  { id: 1, nameProduct: 'Banana', price: 6.40, CTA: 'Frutas e verduras frescas', image: '/assets/banana.png', link: 'https://link-do-anuncio'},
+  { id: 2, nameProduct: 'Abobora', price: 7.40, CTA: 'Frutas e verduras frescas', image: '/assets/abobora.png', link: 'https://link-do-anuncio'},
+  { id: 3, nameProduct: 'Melancia', price: 1.99, CTA: 'Frutas e verduras frescas', image: '/assets/melancia.png', link: 'https://link-do-anuncio'},
+  { id: 4, nameProduct: 'Penino', price: 2.59, CTA: 'Frutas e verduras frescas', image: '/assets/pepino.png', link: 'https://link-do-anuncio'},
 ];
 
 const updatedPoints = points.map(point => ({
