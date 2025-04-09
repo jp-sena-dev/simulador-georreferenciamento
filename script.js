@@ -4,7 +4,7 @@ let HTMLs = [];
 let previewId = '';
 let selectedPreview;
 let selectedPoint = points[0];
-localStorage.setItem('selectedPoint', JSON.stringify(selectedPoint));
+localStorage.setItem('selectedPoint', JSON.stringify(points[0]));
 let animationInterval;
 
 function configMap() {
@@ -195,8 +195,6 @@ function closeModalTable() {
 // }
 
 function openModalPreview() {
-  let HTMLs = [];
-
   const modal = document.getElementById('modal-preview');
   const modalContent = document.getElementById('modal-preview-content');
 
@@ -242,14 +240,35 @@ function openModalPreview() {
         scrollToTargetInsideIframe(activeIframe);
       }
     });
+
+    const modalEl = document.getElementById('modal-preview');
+
+    modalEl.addEventListener('on', () => {
+      const activeIframe = document.querySelector('.carousel-item.active');
+      if (activeIframe) {
+        // Faz scroll quando o modal aparece
+        scrollToTargetInsideIframe(activeIframe);
+      }
+    });
   })();
 
-  const carouselEl = document.getElementById('carouselExample');
-  const carousel = bootstrap.Carousel.getInstance(carouselEl);
-  if (carousel) {
-    carousel.to(0);
-  }
+  const modalOverlay = document.getElementById('modal-preview');
 
+  const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.attributeName === 'class') {
+        const isVisible = modalOverlay.classList.contains('show');
+        if (isVisible) {
+          const activeIframe = document.querySelector('.carousel-item.active');
+          if (activeIframe) {
+            setTimeout(() => scrollToTargetInsideIframe(activeIframe), 200);
+          }
+        }
+      }
+    }
+  });
+
+  observer.observe(modalOverlay, { attributes: true });
   modal.classList.add('show');
 }
 
@@ -324,6 +343,7 @@ function start() {
     });
   })();
   configMap();
+  animationProducts();
 }
 
 document.addEventListener('DOMContentLoaded', start());
