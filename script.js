@@ -4,8 +4,9 @@ let HTMLs = [];
 let previewId = '';
 let selectedPreview;
 let selectedPoint = points[0];
-localStorage.setItem('selectedPoint', JSON.stringify(points[0]));
 let animationInterval;
+
+localStorage.setItem('selectedPoint', JSON.stringify(points[0]));
 
 function configMap() {
   const map = new google.maps.Map(document.getElementById('map'), {
@@ -13,11 +14,6 @@ function configMap() {
       zoom: 9.5,
   });
 
-
-  // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  //   attribution: '&copy; OpenStreetMap contributors'
-  // }).addTo(map);
-    
 
 
   points.forEach((p) => {
@@ -27,15 +23,6 @@ function configMap() {
         title: p.name
     });
 
-    // const marker = L.marker(p.location).addTo(map);
-    
-    // const circle = L.circle(p.location, {
-    //     // color: "blue",
-    //     fillColor: "blue",
-    //     fillOpacity: 0.2,
-    //     radius: 500 // Raio de 1km
-    // }).addTo(map);
-
     const circle = new google.maps.Circle({
       strokeColor: '#FF0000', // Cor da borda
       strokeOpacity: 0.8, // Opacidade da borda
@@ -43,7 +30,7 @@ function configMap() {
       fillColor: '#FF0000', // Cor de preenchimento
       fillOpacity: 0.35, // Opacidade do preenchimento
       map: map,
-      center: p.location, // Centro do círculo
+      center: p.location,
       radius: 2000, // Raio em metros (2 km)
     });
 
@@ -53,9 +40,6 @@ function configMap() {
     circle.addListener('click', () => {
       createItensTable(Object.values(p.location));
     });
-    // circle.on('click', () => {
-    //   createItensTable(p.location)
-    // });
   });
 }
 
@@ -174,26 +158,6 @@ function closeModalTable() {
   animationProducts();
 }
 
-// async function openModalPreview() {
-//   const HTMLs = await Promise.all([
-//     fetch('./metropoles.html').then(res => res.text()),
-//     fetch('./metropoles.html').then(res => res.text()), // simula G1
-//     fetch('./metropoles.html').then(res => res.text())  // simula UOL
-//   ]);
-
-//   const carouselInner = document.getElementById('carousel-inner');
-
-//   carouselInner.innerHTML = HTMLs.map((html, i) => `
-//     <div class="carousel-item ${i === 0 ? 'active' : ''}">
-//       <div class="p-4">${html}</div>
-//     </div>
-//   `).join('');
-
-//   // Mostra o modal
-//   const modal = new bootstrap.Modal(document.getElementById('modal-preview'));
-//   modal.show();
-// }
-
 function openModalPreview() {
   const modal = document.getElementById('modal-preview');
   const modalContent = document.getElementById('modal-preview-content');
@@ -211,22 +175,9 @@ function openModalPreview() {
   };
 
   (async () => {
-    // const metropolesRes = await fetch('./htmls/metropoles.html');
-    // const G1Res = await fetch('./htmls/g1.html');
-    // const UolRes = await fetch('./htmls/oul.html');
-
-    // const metropolesHTML = await metropolesRes.text();
-    // const G1HTML = await G1Res.text();
-    // const UolHTML = await UolRes.text();
-
-    // HTMLs = [metropolesHTML, G1HTML];
-
     const iframes = document.querySelectorAll('.carousel-item');
     iframes.forEach((iframe, i) => {
-      // iframe.srcdoc = HTMLs[i];
-
       iframe.addEventListener('load', () => {
-        // aplica scroll só no primeiro no início
         if (i === 0) {
           scrollToTargetInsideIframe(iframe);
         }
@@ -237,16 +188,6 @@ function openModalPreview() {
     carouselEl.addEventListener('slid.bs.carousel', () => {
       const activeIframe = document.querySelector('.carousel-item.active');
       if (activeIframe) {
-        scrollToTargetInsideIframe(activeIframe);
-      }
-    });
-
-    const modalEl = document.getElementById('modal-preview');
-
-    modalEl.addEventListener('on', () => {
-      const activeIframe = document.querySelector('.carousel-item.active');
-      if (activeIframe) {
-        // Faz scroll quando o modal aparece
         scrollToTargetInsideIframe(activeIframe);
       }
     });
@@ -275,15 +216,21 @@ function openModalPreview() {
 
 function closeModalPreview() {
   const modal = document.getElementById('modal-preview');
-  // document.querySelectorAll('.carousel-item').forEach((e, i) => {
-  //   e.srcdoc = ''
-  // });
   modal.classList.remove('show');
 }
 
 function start() {
-  // const addProcutButton = document.getElementById('add-product');
-  // addProcutButton.addEventListener('click', addProduct());
+  if (typeof google !== 'undefined') {
+    configMap(); // carrega quando a API estiver disponível
+  } else {
+    // tenta novamente após pequeno delay
+    const interval = setInterval(() => {
+      if (typeof google !== 'undefined') {
+        configMap();
+        clearInterval(interval);
+      }
+    }, 100);
+  }
   
   document.querySelectorAll('.mobile-preview').forEach((e) => e.addEventListener('click', () => {openModalPreview(); previewId = e.id}));
   document.getElementById('overlay-click-close-preview').addEventListener('click', closeModalPreview);
@@ -342,7 +289,6 @@ function start() {
       iframe.srcdoc = HTMLs[i];
     });
   })();
-  configMap();
   animationProducts();
 }
 
