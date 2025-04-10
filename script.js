@@ -50,6 +50,7 @@ function createProductTD(product, productIndex) {
     <td><input type="text" value="${product.price}" class="w-full border-none outline-none product-price-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.CTA}" class="w-full border-none outline-none product-CTA-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.location}" class="w-full border-none outline-none product-location-input" data-index="${productIndex}" /></td>
+    <td><input type="text" value="${product.imgId}" class="w-full border-none outline-none product-image-Id-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.link}" class="w-full border-none outline-none product-link-input" data-index="${productIndex}" /></td>
   `;
 
@@ -139,6 +140,11 @@ function closeModalTable() {
   const ctaInputs = document.querySelectorAll('.product-cta-input');
   const locationInputs = document.querySelectorAll('.product-location-input');
   const linkInputs = document.querySelectorAll('.product-link-input');
+  const imageIdInputs = document.querySelectorAll('.product-image-Id-input');
+
+  imageIdInputs.forEach((input, index) => {
+    selectedPoint.products[index].imgId = input.value;
+  });
 
   linkInputs.forEach((input, index) => {
     selectedPoint.products[index].link = input.value;

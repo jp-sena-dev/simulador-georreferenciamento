@@ -25,21 +25,20 @@
 </head>
 <body>
   <div class="w-[320px] h-[50px] bg-[#4F8C46] my-auto relative flex items-center justify-between pr-[6px]">
-    <img class="promotion-image h-[50px] w-[93px] object-cover object-[0px,-4px]" src="/assets/logo-promo.png" alt="">
+    <img class="promotion-image h-[50px] w-[93px] object-cover object-[0px,-4px] mr-[-16px] min-w-[56px] text-center" src="/assets/logo-promo.png" alt="">
+    <p class="font-bold product-location text-white w-min text-[13px] leading-[16px] w-fit text-pretty">Vicente Prires</p>
     <div class="flex flex-col gap-[2px]">
       <p class="font-bold product-name text-white text-[13px] leading-[16px] w-fit">Melancia</p>
       <p class="font-bold product-price text-white text-[19px] w-fit leading-[15px]">R$0,99</p>
       <p class="font-bold text-white text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl">kg</p>
     </div>
     <div class="flex flex-col">
-      <p class="font-bold product-location text-white text-[10px] leading-[11px] w-fit">Vicente Prires</p>
-      <img class="product-image h-[50px] w-[50px] m-[-7px]" src="/assets/melancia.png" alt="">
+      <img class="product-image h-[50px] w-[50px]" src="/assets/melancia.png" alt="">
     </div>
   </div>
   <script>
     let animationInterval;
 
-    const selectedPoint = JSON.parse(localStorage.getItem('selectedPoint'));
     const productNames = document.querySelectorAll('.product-name');
     const productLocations = document.querySelectorAll('.product-location');
     const productPrices = document.querySelectorAll('.product-price');
@@ -48,46 +47,52 @@
     let index = 0;
 
     function updateContent() {
-        const product = selectedPoint.products[index];
+      const selectedPoint = JSON.parse(localStorage.getItem('selectedPoint'));
+      const product = selectedPoint.products[index];
 
-        productNames.forEach((el) => el.classList.remove('fade-cycle'));
-        productLocations.forEach((el) => el.classList.remove('fade-cycle'));
-        productPrices.forEach((el) => el.classList.remove('fade-cycle'));
-        productImage.forEach((el) => el.classList.remove('fade-cycle'));
+      productNames.forEach((el) => el.classList.remove('fade-cycle'));
+      productLocations.forEach((el) => el.classList.remove('fade-cycle'));
+      productPrices.forEach((el) => el.classList.remove('fade-cycle'));
+      productImage.forEach((el) => el.classList.remove('fade-cycle'));
 
-        setTimeout(() => {
-          productNames.forEach((el) => {
-            el.textContent = product.nameProduct;
-            el.classList.add('fade-cycle');
-          });
+      setTimeout(() => {
+        productNames.forEach((el) => {
+          el.textContent = product.nameProduct;
+          el.classList.add('fade-cycle');
+        });
 
-          productLocations.forEach((el) => {
-            el.textContent = product.location;
-            el.classList.add('fade-cycle');
-          });
+        productLocations.forEach((el) => {
+          el.textContent = product.location;
+          el.classList.add('fade-cycle');
+        });
 
-          productPrices.forEach((el) => {
-            el.textContent = `${
-            product.price.toLocaleString('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            })}`;
-            el.classList.add('fade-cycle');
-          });
+        productPrices.forEach((el) => {
+          el.textContent = `${
+          product.price.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })}`;
+          el.classList.add('fade-cycle');
+        });
 
-          productImage.forEach((el) => {
-            el.src = product.image;
-            el.classList.add('fade-cycle');
-          });
+        productImage.forEach((el) => {
+          el.src = product.image;
+          el.classList.add('fade-cycle');
+        });
 
-          index = (index + 1) % selectedPoint.products.length;
-        }, 250); // 5s
-      }
+        index = (index + 1) % selectedPoint.products.length;
+      }, 250); // 5s
+    }
 
-      updateContent();
+    updateContent();
 
-      if (animationInterval) clearInterval(animationInterval);
-      animationInterval = setInterval(updateContent, 2500);
+    if (animationInterval) clearInterval(animationInterval);
+    animationInterval = setInterval(updateContent, 2500);
+
+    // window.addEventListener('storage', () => {
+    //   index = 0;
+    //   updateContent();
+    // });
   </script>
 </body>
 </html>
