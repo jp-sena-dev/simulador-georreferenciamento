@@ -24,17 +24,17 @@
   </style>
 </head>
 <body>
-  <div class="w-[160px] h-[600px] bg-[#4F8C46] my-auto relative flex flex-col items-center justify-between relative overflow-hidden">
+  <div class="banner-preview w-[160px] h-[600px] my-auto relative flex flex-col items-center justify-between relative overflow-hidden">
     <img style="max-width: none;" class="promotion-image w-[214px] object-cover object-[17px,-4px]" src="/assets/logo-promo.png" alt="">
     <div class="flex flex-col gap-[2px]">
       <img class="product-image h-[161px] w-[161px] m-[-7px] object-cover mt-[-121px]" src="/assets/melancia.png" alt="">
       <div>
-        <p class="font-bold product-name text-white text-[24px] leading-[16px] w-fit">Melancia</p>
-        <p class="font-bold product-price text-white text-[33px] w-fit leading-[39px]">R$0,99</p>
-        <p class="font-bold text-white text-[12px] w-fit px-[22px] bg-[#0E4702] rounded-xl">kg</p>
+        <p class="font-bold product-name text-[24px] leading-[16px] w-fit">Melancia</p>
+        <p class="font-bold product-price text-[33px] w-fit leading-[39px]">R$0,99</p>
+        <p class="font-bold text-[12px] w-fit px-[22px] bg-[#0E4702] rounded-xl">kg</p>
       </div>
     </div>
-    <p class="font-bold product-location text-white text-[21px] leading-[26px] w-fit text-center">Vicente Prires</p>
+    <p class="font-bold product-location text-[21px] leading-[26px] w-fit text-center">Vicente Prires</p>
   </div>
   <script>
     let animationInterval;
@@ -43,7 +43,9 @@
     const productLocations = document.querySelectorAll('.product-location');
     const productPrices = document.querySelectorAll('.product-price');
     const productImage = document.querySelectorAll('.product-image');
-  const promotionImage = document.querySelectorAll('.promotion-image');
+    const promotionImage = document.querySelectorAll('.promotion-image');
+    const bannerPreview = document.querySelectorAll('.banner-preview');
+
     let index = 0;
 
     function updateContent() {
@@ -52,50 +54,60 @@
       const product = selectedPoint.products[index];
 
       productNames.forEach((el) => el.classList.remove('fade-cycle'));
-      productLocations.forEach((el) => el.classList.remove('fade-cycle'));
       productPrices.forEach((el) => el.classList.remove('fade-cycle'));
-       promotionImage.forEach((el) => el.classList.remove('fade-cycle'));
+      if (index < selectedPoint.products.length - 1) {
+        if (product.location !== selectedPoint.products[index].location) productLocations.forEach((el) => el.classList.remove('fade-cycle'));
+        if (product.imgId !== selectedPoint.products[index].imgId) promotionImage.forEach((el) => el.classList.remove('fade-cycle'));
+      }
 
     setTimeout(() => {
-  const fadeIn = (el) => {
-    el.classList.remove('fade-cycle');
-    // Força reflow pra reiniciar a animação
-    void el.offsetWidth;
-    el.classList.add('fade-cycle');
-  };
+      const fadeIn = (el) => {
+        el.classList.remove('fade-cycle');
+        // Força reflow pra reiniciar a animação
+        void el.offsetWidth;
+        el.classList.add('fade-cycle');
+      };
 
-  promotionImage.forEach((el) => {
-    if (product.imgId === '1') el.src = '/assets/promotions/logo-promo.png';
-    if (product.imgId === '2') el.src = '/assets/promotions/logo-02.png';
-    if (product.imgId === '3') el.src = '/assets/promotions/logo-03.png';
-    fadeIn(el);
-  });
+      promotionImage.forEach((el) => {
+        if (product.imgId === '1') el.src = '/assets/promotions/logo-promo.png';
+        if (product.imgId === '2') el.src = '/assets/promotions/logo-02.png';
+        if (product.imgId === '3') el.src = '/assets/promotions/logo-03.png';
+        if (index < selectedPoint.products.length - 1) {
+          if (product.imgId !== selectedPoint.products[index].imgId) fadeIn(el);;
+        };
+      });
 
-  productNames.forEach((el) => {
-    el.textContent = product.nameProduct;
-    fadeIn(el);
-  });
+      bannerPreview.forEach((el) => {
+        el.style.cssText = `background: ${product.background}; color: ${product.copy}`;
+      });
 
-  productLocations.forEach((el) => {
-    el.textContent = product.location;
-    fadeIn(el);
-  });
+      productNames.forEach((el) => {
+        el.textContent = product.nameProduct;
+        fadeIn(el);
+      });
 
-  productPrices.forEach((el) => {
-    el.textContent = product.price.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    });
-    fadeIn(el);
-  });
+      productLocations.forEach((el) => {
+        el.textContent = product.location;
+        if (index < selectedPoint.products.length - 1) {
+          if (product.location !== selectedPoint.products[index].location) fadeIn(el);;
+        };
+      });
 
-  productImage.forEach((el) => {
-    el.src = product.image;
-    fadeIn(el);
-  });
+      productPrices.forEach((el) => {
+        el.textContent = product.price.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        });
+        fadeIn(el);
+      });
 
-  index = (index + 1) % selectedPoint.products.length;
-}, 250);
+      productImage.forEach((el) => {
+        el.src = product.image;
+        fadeIn(el);
+      });
+
+      index = (index + 1) % selectedPoint.products.length;
+    }, 250);
 
     }
 

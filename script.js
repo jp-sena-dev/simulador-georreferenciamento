@@ -52,6 +52,8 @@ function createProductTD(product, productIndex) {
     <td><input type="text" value="${product.location}" class="w-full border-none outline-none product-location-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.imgId}" class="w-full border-none outline-none product-image-Id-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.link}" class="w-full border-none outline-none product-link-input" data-index="${productIndex}" /></td>
+    <td><input type="text" value="${product.background}" class="w-full border-none outline-none product-background-input" data-index="${productIndex}" /></td>
+    <td><input type="text" value="${product.copy}" class="w-full border-none outline-none product-copy-input" data-index="${productIndex}" /></td>
   `;
 
   document.getElementById('table').appendChild(row);
@@ -68,6 +70,7 @@ function animationProducts() {
   const productPrices = document.querySelectorAll('.product-price');
   const productImage = document.querySelectorAll('.product-image');
   const promotionImage = document.querySelectorAll('.promotion-image');
+  const bannerPreview = document.querySelectorAll('.banner-preview');
 
   let index = 0;
 
@@ -75,17 +78,25 @@ function animationProducts() {
     const product = selectedPoint.products[index];
 
     productNames.forEach((el) => el.classList.remove('fade-cycle'));
-    productLocations.forEach((el) => el.classList.remove('fade-cycle'));
     productPrices.forEach((el) => el.classList.remove('fade-cycle'));
     productImage.forEach((el) => el.classList.remove('fade-cycle'));
-    promotionImage.forEach((el) => el.classList.remove('fade-cycle'));
+    if (index < selectedPoint.products.length - 1) {
+      if (product.location !== selectedPoint.products[index].location) productLocations.forEach((el) => el.classList.remove('fade-cycle'));
+      if (product.imgId !== selectedPoint.products[index].imgId) promotionImage.forEach((el) => el.classList.remove('fade-cycle'));
+    }
 
     setTimeout(() => {
       promotionImage.forEach((el) => {
         if (product.imgId === '1') el.src = './assets/promotions/logo-promo.png';
         if (product.imgId === '2') el.src = './assets/promotions/logo-02.png';
         if (product.imgId === '3') el.src = './assets/promotions/logo-03.png';
-        el.classList.add('fade-cycle');
+        if (index < selectedPoint.products.length - 1) {
+          if (product.imgId !== selectedPoint.products[index].imgId) el.classList.add('fade-cycle');
+        };
+      });
+
+      bannerPreview.forEach((el) => {
+        el.style.cssText = `background: ${product.background}; color: ${product.copy}`;
       });
 
       productNames.forEach((el) => {
@@ -95,7 +106,10 @@ function animationProducts() {
 
       productLocations.forEach((el) => {
         el.textContent = product.location;
-        el.classList.add('fade-cycle');
+        if (index < selectedPoint.products.length - 1) {
+          if (product.location !== selectedPoint.products[index].location) productLocations.forEach((el) => el.classList.add('fade-cycle'));
+        };
+        
       });
 
       productPrices.forEach((el) => {
@@ -150,6 +164,8 @@ function closeModalTable() {
   const locationInputs = document.querySelectorAll('.product-location-input');
   const linkInputs = document.querySelectorAll('.product-link-input');
   const imageIdInputs = document.querySelectorAll('.product-image-Id-input');
+  const backgroundInputs = document.querySelectorAll('.product-background-input');
+  const textInputs = document.querySelectorAll('.product-copy-input');
 
   imageIdInputs.forEach((input, index) => {
     selectedPoint.products[index].imgId = input.value;
@@ -174,6 +190,14 @@ function closeModalTable() {
   locationInputs.forEach((input, index) => {
     selectedPoint.products[index].location = input.value;
   });
+
+  backgroundInputs.forEach((input, index) => {
+    selectedPoint.products[index].background = input.value;
+  });
+  textInputs.forEach((input, index) => {
+    selectedPoint.products[index].copy = input.value;
+  });
+
 
   localStorage.setItem('selectedPoint', JSON.stringify(selectedPoint));
 

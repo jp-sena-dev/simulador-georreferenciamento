@@ -41,18 +41,20 @@
     <div class="w-full h-full grid place-items-center z-100">
       <div class="bg-white rounded-md p-4 pt-2 w-[80vw] w-[70vw] translate-y-[-40%]">
         <p class="my-2 font-bold">Tabela de Informações</p>
-        <table class="w-full">
-          <thead class="bg-[#E6E7EC]">
-              <tr class="text-left">
+        <table class="w-full border border-gray-200">
+          <thead class="bg-[#EBF4F1]">
+              <tr class="text-left text-[#1A9863] *:px-4 *:py-2">
                   <th>Produto</th>
                   <th>Preço</th>
                   <th>CTA</th>
                   <th>Local</th>
                   <th>ID da Imagem</th>
                   <th>Link</th>
+                  <th>Cor de Fundo</th>
+                  <th>Cor do texto</th>
               </tr>
           </thead>
-          <tbody id="table"></tbody>
+          <tbody id="table" class="*:*:px-4 *:*:py-2 *:border-t-[1px] *:border-gray-200"></tbody>
         </table>
       </div>
     </div>
@@ -83,26 +85,26 @@
       <div id="Mobile-previews" class="flex flex-wrap gap-4">
         <div id="retangulo-medio" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
           <p class="text-center font-bold">Retângulo Médio (300x250)</p>
-          <div class="w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
+          <div class="banner-preview w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
             <img class="promotion-image w-[206px]" src="./assets/logo-promo.png" alt="">
-            <p class="font-bold product-location text-white text-[24px] leading-[28px] absolute top-[41px] right-[18px] w-min min-w-[104px] text-center">Vicente Prires</p>
+            <p class="font-bold product-location text-[24px] leading-[28px] absolute top-[41px] right-[18px] w-min min-w-[104px] text-center">Vicente Prires</p>
             <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
-              <p class="font-bold product-name text-white text-[20px] leading-[24px] w-fit">Melancia</p>
-              <p class="font-bold product-price text-white text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
-              <p class="font-bold text-white text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold product-name text-[20px] leading-[24px] w-fit">Melancia</p>
+              <p class="font-bold product-price text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
+              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
             </div>
             <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px]" src="./assets/melancia.png" alt="">
           </div>
         </div>
         <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
           <p class="text-center font-bold">Mobile LeaderBoard (320x50)</p>
-          <div class="w-[320px] h-[50px] bg-[#4F8C46] my-auto relative flex items-center justify-between pr-[6px]">
+          <div class="banner-preview w-[320px] h-[50px] bg-[#4F8C46] my-auto relative flex items-center justify-between pr-[6px]">
             <img class="promotion-image h-[50px] w-[93px] object-cover object-[0px,-4px] mr-[-16px]" src="/assets/logo-promo.png" alt="">
-            <p class="font-bold product-location text-white w-min text-[13px] leading-[16px] w-fit min-w-[56px] text-pretty text-center">Vicente Prires</p>
+            <p class="font-bold product-location w-min text-[13px] leading-[16px] w-fit min-w-[56px] text-pretty text-center">Vicente Prires</p>
             <div class="flex flex-col gap-[2px]">
-              <p class="font-bold product-name text-white text-[13px] leading-[16px] w-fit">Melancia</p>
-              <p class="font-bold product-price text-white text-[19px] w-fit leading-[15px]">R$0,99</p>
-              <p class="font-bold text-white text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold product-name text-[13px] leading-[16px] w-fit">Melancia</p>
+              <p class="font-bold product-price text-[19px] w-fit leading-[15px]">R$0,99</p>
+              <p class="font-bold text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl">kg</p>
             </div>
             <div class="flex flex-col">
               <img class="product-image h-[50px] w-[50px]" src="/assets/melancia.png" alt="">
@@ -111,13 +113,13 @@
         </div>
         <div id="large-mobile-banner" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
           <p class="text-center font-bold">Large Mobile Banner (320x100)</p>
-          <div class="w-[320px] h-[50px] bg-[#4F8C46] my-auto relative flex items-center justify-between pr-[6px]">
+          <div class="banner-preview w-[320px] h-[50px] bg-[#4F8C46] my-auto relative flex items-center justify-between pr-[6px]">
             <img class="promotion-image h-[50px] w-[93px] object-cover object-[0px,-4px] mr-[-16px]" src="/assets/logo-promo.png" alt="">
-            <p class="font-bold product-location text-white w-min text-[13px] leading-[16px] w-fit min-w-[56px] text-pretty text-center">Vicente Prires</p>
+            <p class="font-bold product-location w-min text-[13px] leading-[16px] w-fit min-w-[56px] text-pretty text-center">Vicente Prires</p>
             <div class="flex flex-col gap-[2px]">
-              <p class="font-bold product-name text-white text-[13px] leading-[16px] w-fit">Melancia</p>
-              <p class="font-bold product-price text-white text-[19px] w-fit leading-[15px]">R$0,99</p>
-              <p class="font-bold text-white text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold product-name text-[13px] leading-[16px] w-fit">Melancia</p>
+              <p class="font-bold product-price text-[19px] w-fit leading-[15px]">R$0,99</p>
+              <p class="font-bold text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl">kg</p>
             </div>
             <div class="flex flex-col">
               <img class="product-image h-[50px] w-[50px]" src="/assets/melancia.png" alt="">
@@ -126,13 +128,13 @@
         </div>
         <div id="quadrado" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
           <p class="text-center font-bold">Quadrado (250x250)</p>
-          <div class="w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
+          <div class="banner-preview w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
             <img class="promotion-image w-[240px]" src="./assets/logo-promo.png" alt="">
-            <p class="font-bold product-location text-white text-[22px] leading-[28px] absolute top-[41px] right-[0px] w-[120px] text-center">Vicente Prires</p>
+            <p class="font-bold product-location text-[22px] leading-[28px] absolute top-[41px] right-[0px] w-[120px] text-center">Vicente Prires</p>
             <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
-              <p class="font-bold product-name text-white text-[20px] leading-[24px] w-fit">Melancia</p>
-              <p class="font-bold product-price text-white text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
-              <p class="font-bold text-white text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold product-name text-[20px] leading-[24px] w-fit">Melancia</p>
+              <p class="font-bold product-price text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
+              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
             </div>
             <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px]" src="./assets/melancia.png" alt="">
           </div>
@@ -141,26 +143,26 @@
       <div id="Desktop-previews" class="flex flex-wrap gap-4 hidden">
         <div id="retangulo-medio" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Retângulo Médio (300x250)</p>
-            <div class="w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
+            <div class="banner-preview w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
               <img class="promotion-image w-[206px]" src="./assets/logo-promo.png" alt="">
-              <p class="font-bold product-location text-white text-[24px] leading-[28px] absolute top-[41px] right-[18px] w-min min-w-[104px] text-center">Vicente Prires</p>
+              <p class="font-bold product-location text-[24px] leading-[28px] absolute top-[41px] right-[18px] w-min min-w-[104px] text-center">Vicente Prires</p>
               <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
-                <p class="font-bold product-name text-white text-[20px] leading-[24px] w-fit">Melancia</p>
-                <p class="font-bold product-price text-white text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
-                <p class="font-bold text-white text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+                <p class="font-bold product-name text-[20px] leading-[24px] w-fit">Melancia</p>
+                <p class="font-bold product-price text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
+                <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
               </div>
               <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px]" src="./assets/melancia.png" alt="">
             </div>
         </div>
         <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
           <p class="text-center font-bold">Leaderboard (728x90)</p>
-          <div class="w-[728px] h-[90px] bg-[#4F8C46] my-auto relative flex items-center justify-between pr-[6px] relative overflow-hidden">
+          <div class="banner-preview w-[728px] h-[90px] bg-[#4F8C46] my-auto relative flex items-center justify-between pr-[6px] relative overflow-hidden">
             <img class="promotion-image w-[176px] object-cover object-[0px,25px] mr-[-21px]" src="/assets/logo-promo.png" alt="">
-            <p class="font-bold product-location text-white text-[24px] leading-[26px] w-min min-w-[104px] text-center">Vicente Prires</p>
+            <p class="font-bold product-location text-[24px] leading-[26px] w-min min-w-[104px] text-center">Vicente Prires</p>
             <div class="flex flex-col gap-[2px]">
-              <p class="font-bold product-name text-white text-[22px] leading-[16px] w-fit">Melancia</p>
-              <p class="font-bold product-price text-white text-[36px] w-fit leading-[36px]">R$0,99</p>
-              <p class="font-bold text-white text-[13px] w-fit px-[26px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold product-name text-[22px] leading-[16px] w-fit">Melancia</p>
+              <p class="font-bold product-price text-[36px] w-fit leading-[36px]">R$0,99</p>
+              <p class="font-bold text-[13px] w-fit px-[26px] bg-[#0E4702] rounded-xl">kg</p>
             </div>
             <div class="flex flex-col items-center pt-2">
               <img class="product-image h-[93px] w-[93px]" src="/assets/melancia.png" alt="">
@@ -170,7 +172,7 @@
         <!-- <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Retângulo Vertical (240x400)</p>
             <div class="w-[240px] h-[400px] bg-gray-500 my-auto">
-                <div class="text-white p-2">
+                <div class="p-2">
                     <p class="font-bold">local: <span class="font-normal product-location"></span></p>
                     <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
                     <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
@@ -180,7 +182,7 @@
         <!-- <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Quadrado (250x250)</p>
             <div class="w-[250px] h-[250px] bg-gray-500 my-auto">
-                <div class="text-white p-2">
+                <div class="p-2">
                     <p class="font-bold">local: <span class="font-normal product-location"></span></p>
                     <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
                     <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
@@ -190,7 +192,7 @@
         <!-- <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Skyscraper (120x600)</p>
             <div class="w-[120px] h-[600px] bg-gray-500 my-auto">
-                <div class="text-white p-2">
+                <div class="p-2">
                     <p class="font-bold">local: <span class="font-normal product-location"></span></p>
                     <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
                     <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
@@ -199,23 +201,23 @@
         </div> -->
         <div id="wide-skyscraper" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer overflow-hidden">
             <p class="text-center font-bold">Wide Skyscraper (160x600)</p>
-            <div class="w-[160px] h-[600px] bg-[#4F8C46] my-auto relative flex flex-col items-center justify-between relative overflow-hidden">
+            <div class="banner-preview w-[160px] h-[600px] bg-[#4F8C46] my-auto relative flex flex-col items-center justify-between relative overflow-hidden">
               <img style="max-width: none;" class="promotion-image w-[214px] object-cover object-[17px,-4px]" src="/assets/logo-promo.png" alt="">
               <div class="flex flex-col gap-[2px]">
                 <img class="product-image h-[161px] w-[161px] m-[-7px] object-cover mt-[-121px]" src="/assets/melancia.png" alt="">
                 <div>
-                  <p class="font-bold product-name text-white text-[24px] leading-[16px] w-fit">Melancia</p>
-                  <p class="font-bold product-price text-white text-[33px] w-fit leading-[39px]">R$0,99</p>
-                  <p class="font-bold text-white text-[12px] w-fit px-[22px] bg-[#0E4702] rounded-xl">kg</p>
+                  <p class="font-bold product-name text-[24px] leading-[16px] w-fit">Melancia</p>
+                  <p class="font-bold product-price text-[33px] w-fit leading-[39px]">R$0,99</p>
+                  <p class="font-bold text-[12px] w-fit px-[22px] bg-[#0E4702] rounded-xl">kg</p>
                 </div>
               </div>
-              <p class="font-bold product-location text-white text-[21px] leading-[26px] w-fit text-center">Vicente Prires</p>
+              <p class="font-bold product-location text-[21px] leading-[26px] w-fit text-center">Vicente Prires</p>
             </div>
         </div>
         <!-- <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Half Page (300x600)</p>
             <div class="w-[300px] h-[600px] bg-gray-500 my-auto">
-                <div class="text-white p-2">
+                <div class="p-2">
                     <p class="font-bold">local: <span class="font-normal product-location"></span></p>
                     <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
                     <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
@@ -224,13 +226,13 @@
         </div> -->
         <div id="quadrado" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
           <p class="text-center font-bold">Large Rectangle (336x280)</p>
-          <div class="w-[336px] h-[280px] bg-[#4F8C46] my-auto relative">
+          <div class="banner-preview w-[336px] h-[280px] bg-[#4F8C46] my-auto relative">
             <img class="promotion-image w-[241px]" src="/assets/logo-promo.png" alt="">
-            <p class="font-bold product-location text-white text-[25px] leading-[29px] absolute top-[41px] right-[0px] w-[150px] text-center">Vicente Prires</p>
+            <p class="font-bold product-location text-[25px] leading-[29px] absolute top-[41px] right-[0px] w-[150px] text-center">Vicente Prires</p>
             <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
-              <p class="font-bold product-name text-white text-[23px] leading-[24px] w-fit">Melancia</p>
-              <p class="font-bold product-price text-white text-[39px] w-fit leading-[29px]">R$0,99</p>
-              <p class="font-bold text-white text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold product-name text-[23px] leading-[24px] w-fit">Melancia</p>
+              <p class="font-bold product-price text-[39px] w-fit leading-[29px]">R$0,99</p>
+              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
             </div>
             <img class="product-image absolute w-[166px] bottom-[-3px] right-[10px]" src="/assets/melancia.png" alt="">
           </div>
@@ -238,7 +240,7 @@
         <!-- <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Billboard (970x250)</p>
             <div class="w-[970px] h-[250px] bg-gray-500 my-auto">
-                <div class="text-white p-2">
+                <div class="p-2">
                     <p class="font-bold">local: <span class="font-normal product-location"></span></p>
                     <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
                     <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
@@ -248,7 +250,7 @@
         <!-- <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Panorama (980x120)</p>
             <div class="w-[980px] h-[120px] bg-gray-500 my-auto">
-                <div class="text-white p-2">
+                <div class="p-2">
                     <p class="font-bold">local: <span class="font-normal product-location"></span></p>
                     <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
                     <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
@@ -258,7 +260,7 @@
         <!-- <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Netboard (580x400)</p>
             <div class="w-[580px] h-[400px] bg-gray-500 my-auto">
-                <div class="text-white p-2">
+                <div class="p-2">
                     <p class="font-bold">local: <span class="font-normal product-location"></span></p>
                     <p class="font-bold">produto: <span class="font-normal product-name"></span></p>
                     <p class="font-bold">preço: <span class="font-normal product-price"></span></p>
