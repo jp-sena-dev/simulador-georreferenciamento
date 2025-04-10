@@ -43,7 +43,7 @@
     const productLocations = document.querySelectorAll('.product-location');
     const productPrices = document.querySelectorAll('.product-price');
     const productImage = document.querySelectorAll('.product-image');
-
+  const promotionImage = document.querySelectorAll('.promotion-image');
     let index = 0;
 
     function updateContent() {
@@ -53,35 +53,49 @@
       productNames.forEach((el) => el.classList.remove('fade-cycle'));
       productLocations.forEach((el) => el.classList.remove('fade-cycle'));
       productPrices.forEach((el) => el.classList.remove('fade-cycle'));
-      productImage.forEach((el) => el.classList.remove('fade-cycle'));
+       promotionImage.forEach((el) => el.classList.remove('fade-cycle'));
 
-      setTimeout(() => {
-        productNames.forEach((el) => {
-          el.textContent = product.nameProduct;
-          el.classList.add('fade-cycle');
-        });
+    setTimeout(() => {
+  const fadeIn = (el) => {
+    el.classList.remove('fade-cycle');
+    // Força reflow pra reiniciar a animação
+    void el.offsetWidth;
+    el.classList.add('fade-cycle');
+  };
 
-        productLocations.forEach((el) => {
-          el.textContent = product.location;
-          el.classList.add('fade-cycle');
-        });
+  promotionImage.forEach((el) => {
+    if (product.imgId === '1') el.src = '/assets/promotions/logo-promo.png';
+    if (product.imgId === '2') el.src = '/assets/promotions/logo-02.png';
+    if (product.imgId === '3') el.src = '/assets/promotions/logo-03.png';
+    fadeIn(el);
+  });
 
-        productPrices.forEach((el) => {
-          el.textContent = `${
-          product.price.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          })}`;
-          el.classList.add('fade-cycle');
-        });
+  productNames.forEach((el) => {
+    el.textContent = product.nameProduct;
+    fadeIn(el);
+  });
 
-        productImage.forEach((el) => {
-          el.src = product.image;
-          el.classList.add('fade-cycle');
-        });
+  productLocations.forEach((el) => {
+    el.textContent = product.location;
+    fadeIn(el);
+  });
 
-        index = (index + 1) % selectedPoint.products.length;
-      }, 250); // 5s
+  productPrices.forEach((el) => {
+    el.textContent = product.price.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+    fadeIn(el);
+  });
+
+  productImage.forEach((el) => {
+    el.src = product.image;
+    fadeIn(el);
+  });
+
+  index = (index + 1) % selectedPoint.products.length;
+}, 250);
+
     }
 
     updateContent();

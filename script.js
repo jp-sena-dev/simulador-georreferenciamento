@@ -67,6 +67,7 @@ function animationProducts() {
   const productLocations = document.querySelectorAll('.product-location');
   const productPrices = document.querySelectorAll('.product-price');
   const productImage = document.querySelectorAll('.product-image');
+  const promotionImage = document.querySelectorAll('.promotion-image');
 
   let index = 0;
 
@@ -77,8 +78,16 @@ function animationProducts() {
     productLocations.forEach((el) => el.classList.remove('fade-cycle'));
     productPrices.forEach((el) => el.classList.remove('fade-cycle'));
     productImage.forEach((el) => el.classList.remove('fade-cycle'));
+    promotionImage.forEach((el) => el.classList.remove('fade-cycle'));
 
     setTimeout(() => {
+      promotionImage.forEach((el) => {
+        if (product.imgId === '1') el.src = './assets/promotions/logo-promo.png';
+        if (product.imgId === '2') el.src = './assets/promotions/logo-02.png';
+        if (product.imgId === '3') el.src = './assets/promotions/logo-03.png';
+        el.classList.add('fade-cycle');
+      });
+
       productNames.forEach((el) => {
         el.textContent = product.nameProduct;
         el.classList.add('fade-cycle');
@@ -165,6 +174,8 @@ function closeModalTable() {
   locationInputs.forEach((input, index) => {
     selectedPoint.products[index].location = input.value;
   });
+
+  localStorage.setItem('selectedPoint', JSON.stringify(selectedPoint));
 
   modal.classList.remove('show');
   animationProducts();
