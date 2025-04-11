@@ -297,7 +297,9 @@ const updatedPoints = points.map(point => ({
   products: newProducts.map(product => ({
     ...product,
     background: '#4F8C46',
+    darkBackground: '#0E4702',
     copy: '#ffffff',
+    unit: 'kg',
     location: point.name.split('-')[1]?.trim() || point.name // atualiza o `location` baseado no nome do ponto
   }))
 }));

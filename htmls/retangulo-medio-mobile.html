@@ -31,7 +31,7 @@
     <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
       <p class="font-bold product-name text-[20px] leading-[24px] w-fit">Melancia</p>
       <p class="font-bold product-price text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
-      <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+      <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl product-unit">kg</p>
     </div>
     <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px]" src="./assets/melancia.png" alt="">
   </div>
@@ -43,8 +43,9 @@
     const productLocations = document.querySelectorAll('.product-location');
     const productPrices = document.querySelectorAll('.product-price');
     const productImage = document.querySelectorAll('.product-image');
-  const promotionImage = document.querySelectorAll('.promotion-image');
-  const bannerPreview = document.querySelectorAll('.banner-preview');
+    const productUnit = document.querySelectorAll('.product-unit');
+    const promotionImage = document.querySelectorAll('.promotion-image');
+    const bannerPreview = document.querySelectorAll('.banner-preview');
     let index = 0;
 
     function updateContent() {
@@ -78,6 +79,14 @@
 
         bannerPreview.forEach((el) => {
           el.style.cssText = `background: ${product.background}; color: ${product.copy}`;
+        });
+
+        productUnit.forEach((el) => {
+          el.textContent = product.unit;
+          if (index < selectedPoint.products.length - 1) {
+            if (product.unit !== selectedPoint.products[index].unit) productUnit.forEach((el) => el.classList.add('fade-cycle'));
+          }
+          el.style.cssText = `background: ${product.darkBackground};`;
         });
 
         productNames.forEach((el) => {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Georreferenciamento</title>
   <link rel="stylesheet" href="global.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://u product-unitnpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -52,6 +52,7 @@
                   <th>Link</th>
                   <th>Cor de Fundo</th>
                   <th>Cor do texto</th>
+                  <th>Medida</th>
               </tr>
           </thead>
           <tbody id="table" class="*:*:px-4 *:*:py-2 *:border-t-[1px] *:border-gray-200"></tbody>
@@ -86,14 +87,14 @@
         <div id="retangulo-medio" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
           <p class="text-center font-bold">Retângulo Médio (300x250)</p>
           <div class="banner-preview w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
-            <img class="promotion-image w-[206px]" src="./assets/logo-promo.png" alt="">
+            <img class="promotion-image w-[206px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="./assets/logo-promo.png" alt="">
             <p class="font-bold product-location text-[24px] leading-[28px] absolute top-[41px] right-[18px] w-min min-w-[104px] text-center">Vicente Prires</p>
             <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
               <p class="font-bold product-name text-[20px] leading-[24px] w-fit">Melancia</p>
               <p class="font-bold product-price text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
-              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl product-unit">kg</p>
             </div>
-            <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px]" src="./assets/melancia.png" alt="">
+            <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="./assets/melancia.png" alt="">
           </div>
         </div>
         <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
@@ -104,10 +105,10 @@
             <div class="flex flex-col gap-[2px]">
               <p class="font-bold product-name text-[13px] leading-[16px] w-fit">Melancia</p>
               <p class="font-bold product-price text-[19px] w-fit leading-[15px]">R$0,99</p>
-              <p class="font-bold text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl product-unit">kg</p>
             </div>
             <div class="flex flex-col">
-              <img class="product-image h-[50px] w-[50px]" src="/assets/melancia.png" alt="">
+              <img class="product-image h-[50px] w-[50px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="/assets/melancia.png" alt="">
             </div>
           </div>
         </div>
@@ -119,24 +120,24 @@
             <div class="flex flex-col gap-[2px]">
               <p class="font-bold product-name text-[13px] leading-[16px] w-fit">Melancia</p>
               <p class="font-bold product-price text-[19px] w-fit leading-[15px]">R$0,99</p>
-              <p class="font-bold text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold text-[6px] w-fit px-[16px] bg-[#0E4702] rounded-xl product-unit">kg</p>
             </div>
             <div class="flex flex-col">
-              <img class="product-image h-[50px] w-[50px]" src="/assets/melancia.png" alt="">
+              <img class="product-image h-[50px] w-[50px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="/assets/melancia.png" alt="">
             </div>
           </div>
         </div>
         <div id="quadrado" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
           <p class="text-center font-bold">Quadrado (250x250)</p>
           <div class="banner-preview w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
-            <img class="promotion-image w-[240px]" src="./assets/logo-promo.png" alt="">
+            <img class="promotion-image w-[240px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="./assets/logo-promo.png" alt="">
             <p class="font-bold product-location text-[22px] leading-[28px] absolute top-[41px] right-[0px] w-[120px] text-center">Vicente Prires</p>
             <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
               <p class="font-bold product-name text-[20px] leading-[24px] w-fit">Melancia</p>
               <p class="font-bold product-price text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
-              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl product-unit">kg</p>
             </div>
-            <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px]" src="./assets/melancia.png" alt="">
+            <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="./assets/melancia.png" alt="">
           </div>
         </div>
       </div>
@@ -144,14 +145,14 @@
         <div id="retangulo-medio" class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
             <p class="text-center font-bold">Retângulo Médio (300x250)</p>
             <div class="banner-preview w-[300px] h-[250px] bg-[#4F8C46] my-auto relative">
-              <img class="promotion-image w-[206px]" src="./assets/logo-promo.png" alt="">
+              <img class="promotion-image w-[206px]" src="/assets/logo-promo.png" alt="">
               <p class="font-bold product-location text-[24px] leading-[28px] absolute top-[41px] right-[18px] w-min min-w-[104px] text-center">Vicente Prires</p>
               <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
                 <p class="font-bold product-name text-[20px] leading-[24px] w-fit">Melancia</p>
                 <p class="font-bold product-price text-[22px] w-fit text-[32px] leading-[28px]">R$0,99</p>
-                <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+                <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl product-unit">kg</p>
               </div>
-              <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px]" src="./assets/melancia.png" alt="">
+              <img class="product-image absolute w-[147px] bottom-[-3px] right-[10px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="./assets/melancia.png" alt="">
             </div>
         </div>
         <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">
@@ -162,10 +163,10 @@
             <div class="flex flex-col gap-[2px]">
               <p class="font-bold product-name text-[22px] leading-[16px] w-fit">Melancia</p>
               <p class="font-bold product-price text-[36px] w-fit leading-[36px]">R$0,99</p>
-              <p class="font-bold text-[13px] w-fit px-[26px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold text-[13px] w-fit px-[26px] bg-[#0E4702] rounded-xl product-unit">kg</p>
             </div>
             <div class="flex flex-col items-center pt-2">
-              <img class="product-image h-[93px] w-[93px]" src="/assets/melancia.png" alt="">
+              <img class="product-image h-[93px] w-[93px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="/assets/melancia.png" alt="">
             </div>
           </div>
         </div>
@@ -205,11 +206,11 @@
             <img style="max-width: none;" class="promotion-image w-[214px] object-cover object-[17px,-4px]" src="/assets/logo-promo.png" alt="">
             <p class="font-bold product-location text-[26px] leading-[26px] w-fit text-center text-pretty px-2">Vicente Prires</p>
             <div class="flex flex-col gap-[2px]">
-              <img class="product-image h-[161px] w-[161px] m-[-7px] object-cover" src="/assets/melancia.png" alt="">
+              <img class="product-image h-[161px] w-[161px] m-[-7px] object-cover bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="/assets/melancia.png" alt="">
               <div>
                 <p class="font-bold product-name text-[24px] leading-[16px] w-fit">Melancia</p>
                 <p class="font-bold product-price text-[33px] w-fit leading-[39px]">R$0,99</p>
-                <p class="font-bold text-[12px] w-fit px-[22px] bg-[#0E4702] rounded-xl">kg</p>
+                <p class="font-bold text-[12px] w-fit px-[22px] bg-[#0E4702] rounded-xl product-unit">kg</p>
               </div>
             </div>
           </div>
@@ -232,9 +233,9 @@
             <div class="flex flex-col absolute bottom-[10px] left-[17px] gap-1">
               <p class="font-bold product-name text-[23px] leading-[24px] w-fit">Melancia</p>
               <p class="font-bold product-price text-[39px] w-fit leading-[29px]">R$0,99</p>
-              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl">kg</p>
+              <p class="font-bold text-[16px] w-fit px-[28px] bg-[#0E4702] rounded-xl product-unit">kg</p>
             </div>
-            <img class="product-image absolute w-[166px] bottom-[-3px] right-[10px]" src="/assets/melancia.png" alt="">
+            <img class="product-image absolute w-[166px] bottom-[-3px] right-[10px] bg-[radial-gradient(circle,_rgba(0,0,0,0.5)_0%,_transparent_70%)]" src="/assets/melancia.png" alt="">
           </div>
         </div>
         <!-- <div class="bg-white p-2 rounded flex flex-col items-center mobile-preview cursor-pointer">

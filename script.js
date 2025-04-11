@@ -8,6 +8,19 @@ let animationInterval;
 
 localStorage.setItem('selectedPoint', JSON.stringify(points[0]));
 
+export function darkenColor(hex, diff = { r: 65, g: 69, b: 68 }) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+
+  const newR = Math.max(0, r - diff.r);
+  const newG = Math.max(0, g - diff.g);
+  const newB = Math.max(0, b - diff.b);
+
+  const toHex = (v) => v.toString(16).padStart(2, '0');
+  return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
+}
+
 function configMap() {
   const map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: -15.789569443413834, lng:  -47.89637032850101 },
@@ -54,6 +67,13 @@ function createProductTD(product, productIndex) {
     <td><input type="text" value="${product.link}" class="w-full border-none outline-none product-link-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.background}" class="w-full border-none outline-none product-background-input" data-index="${productIndex}" /></td>
     <td><input type="text" value="${product.copy}" class="w-full border-none outline-none product-copy-input" data-index="${productIndex}" /></td>
+    <td>
+      <input list="unit" type="text" value="${product.unit}" class="w-full border-none outline-none product-unit-input" data-index="${productIndex}" />
+      <datalist id="unit">
+        <option value="kg">kg</option>
+        <option value="Litros">Litros</option>
+      </datalist>
+    </td>
   `;
 
   document.getElementById('table').appendChild(row);
@@ -69,6 +89,7 @@ function animationProducts() {
   const productLocations = document.querySelectorAll('.product-location');
   const productPrices = document.querySelectorAll('.product-price');
   const productImage = document.querySelectorAll('.product-image');
+  const productUnit = document.querySelectorAll('.product-unit');
   const promotionImage = document.querySelectorAll('.promotion-image');
   const bannerPreview = document.querySelectorAll('.banner-preview');
 
@@ -104,12 +125,19 @@ function animationProducts() {
         el.classList.add('fade-cycle');
       });
 
+      productUnit.forEach((el) => {
+        el.textContent = product.unit;
+        if (index < selectedPoint.products.length - 1) {
+          if (product.unit !== selectedPoint.products[index].unit) productUnit.forEach((el) => el.classList.add('fade-cycle'));
+        }
+        el.style.cssText = `background: ${product.darkBackground};`;
+      });
+
       productLocations.forEach((el) => {
         el.textContent = product.location;
         if (index < selectedPoint.products.length - 1) {
           if (product.location !== selectedPoint.products[index].location) productLocations.forEach((el) => el.classList.add('fade-cycle'));
         };
-        
       });
 
       productPrices.forEach((el) => {
@@ -162,10 +190,15 @@ function closeModalTable() {
   const priceInputs = document.querySelectorAll('.product-price-input');
   const ctaInputs = document.querySelectorAll('.product-cta-input');
   const locationInputs = document.querySelectorAll('.product-location-input');
+  const UnitInputs = document.querySelectorAll('.product-unit-input');
   const linkInputs = document.querySelectorAll('.product-link-input');
   const imageIdInputs = document.querySelectorAll('.product-image-Id-input');
   const backgroundInputs = document.querySelectorAll('.product-background-input');
   const textInputs = document.querySelectorAll('.product-copy-input');
+
+  UnitInputs.forEach((input, index) => {
+    selectedPoint.products[index].unit = input.value;
+  });
 
   imageIdInputs.forEach((input, index) => {
     selectedPoint.products[index].imgId = input.value;
@@ -193,6 +226,7 @@ function closeModalTable() {
 
   backgroundInputs.forEach((input, index) => {
     selectedPoint.products[index].background = input.value;
+    selectedPoint.products[index].darkBackground = darkenColor(input.value);
   });
   textInputs.forEach((input, index) => {
     selectedPoint.products[index].copy = input.value;
